@@ -1,27 +1,23 @@
-class Assets {
+<?php
 
-    public function enqueue() {
-
-        wp_enqueue_style(
-            'intl-tel-input',
-            plugin_dir_url(FILE) . 'css/intlTelInput.css'
-        );
-
-        wp_enqueue_script(
-            'intl-tel-input',
-            plugin_dir_url(FILE) . 'js/intlTelInput.min.js',
-            [],
-            '25.0',
-            true
-        );
-
-        wp_enqueue_script(
-            'cf7-phone',
-            plugin_dir_url(FILE) . 'js/phone.js',
-            ['intl-tel-input'],
-            '1.0',
-            true
-        );
-
-    }
+if ( ! defined( 'ABSPATH' ) ) {
+ exit;
 }
+
+class CF7IP_Assets {
+
+ public function init() {
+
+  add_action(
+   'wp_enqueue_scripts',
+   [ $this, 'enqueue_assets' ]
+  );
+
+ }
+
+ public function enqueue_assets() {
+    
+ }
+
+}
+
