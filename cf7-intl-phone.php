@@ -13,13 +13,13 @@ if ( ! defined( 'ABSPATH' ) ) {
  exit;
 }
 
-define( 'CF7IP_VERSION', '0.1.0' );
+define( 'CF7IP_VERSION', '0.2.0' );
 
-define( 'CF7IP_FILE', FILE );
+define( 'CF7IP_FILE', __FILE__ );
 
-define( 'CF7IP_PATH', plugin_dir_path( FILE ) );
+define( 'CF7IP_PATH', plugin_dir_path( __FILE__ ) );
 
-define( 'CF7IP_URL', plugin_dir_url( FILE ) );
+define( 'CF7IP_URL', plugin_dir_url( __FILE__ ) );
 
 
 require_once CF7IP_PATH . 'includes/class-plugin.php';
