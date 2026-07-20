@@ -36,7 +36,7 @@ private function enqueue_scripts() {
     wp_register_script('cf7-intl-input-lib', CF7IP_URL. 'assets/js/intlTelInput.min.js' , '', '29.1.2', true );
     wp_enqueue_script('cf7-intl-input-lib');
 
-    wp_register_script('cf7-intl-input-utils', CF7IP_URL. 'assets/js/intl-tel-input-utils.js' , ['cf7-intl-input-lib'], '2.0', true );
+    wp_register_script('cf7-intl-input-utils', CF7IP_URL. 'assets/js/intl-tel-input-utils.js' , ['cf7-intl-input-lib'], '2.0', [ 'in_footer' => true ] );
     wp_localize_script( 'cf7-intl-input-utils', 'cf7IntlPhone', [
         'intlUtilsUrl'  => CF7IP_URL. 'assets/js/intl-tel-input-utils.js'
     ] );
