@@ -89,7 +89,52 @@ class CF7IP_CF7 {
 						</h3>
 
             <!-- Здесь будут поля -->
-				<?php  $this->render_text_option(
+				<?php 
+
+                $this->render_text_field(
+                    __('Field name', 'cf7-intl-phone'),
+                    'name',
+                    'tg-name oneline'
+                );
+
+                $this->render_checkbox(
+                    __('Required field', 'cf7-intl-phone'),
+                    'required'
+                );
+
+                $this->render_text_field(
+                    __('Placeholder', 'cf7-intl-phone'),
+                    'placeholder',
+                    'oneline'
+                );
+
+                $this->render_text_field(
+                    __('Default country', 'cf7-intl-phone'),
+                    'default',
+                    'option oneline',
+                    __('Example: ua', 'cf7-intl-phone')
+                );
+
+                $this->render_text_field(
+                    __('Preferred countries', 'cf7-intl-phone'),
+                    'preferred',
+                    'option oneline',
+                    __('Example: ua,de,pl', 'cf7-intl-phone')
+                );
+
+                $this->render_text_field(
+                    __('CSS class', 'cf7-intl-phone'),
+                    'class',
+                    'classvalue option oneline'
+                );
+
+                $this->render_text_field(
+                    __('Id attribute', 'cf7-intl-phone'),
+                    'id',
+                    'idvalue option oneline'
+                );
+                
+                /* $this->render_text_option(
 							__( 'Field name', 'cf7-intl-phone' ),
 							'name'
 					);
@@ -109,21 +154,66 @@ class CF7IP_CF7 {
 							__( 'Preferred countries', 'cf7-intl-phone' ),
 							'preferred',
 							__( 'Example: ua,de,pl', 'cf7-intl-phone' )
-					);
-					?>
+					); */
+			?>
 
         </table>
 
     </div>
     <?php
-	}
+}
+
+private function render_text_field(
+    string $label,
+    string $name,
+    string $class,
+    string $placeholder = '' ) {
+    ?>
+
+    <tr>
+        <th scope="row">
+            <?php echo esc_html( $label ); ?>
+        </th>
+        <td>
+            
+                <input type="text"
+                name="<?php echo esc_attr($name); ?>"
+                class="<?php echo esc_attr($class); ?>"
+                placeholder="<?php echo esc_attr($placeholder); ?>">
+            <label><?php echo esc_attr($placeholder); ?></label>
+        </td>
+    </tr>
+    
+    
+
+    <?php
+}
+private function render_checkbox(
+    string $label,
+    string $name ) {
+    ?>
+    <tr>
+        <th scope="row">
+            <?php echo esc_html( $label ); ?>
+        </th>
+        <td>
+            <label>
+                <input
+                    type="checkbox"
+                    name="<?php echo esc_attr( $name ); ?>">
+                <?php esc_html_e( 'Required field', 'cf7-intl-phone' ); ?>
+            </label>
+        </td>
+    </tr>
+    <?php
+}
+
 
 	private function render_text_option(
     string $label,
     string $tag_part,
     string $description = '',
-    string $placeholder = ''
-) {
+    string $placeholder = '' ) {
     ?>
     <tr>
         <th>
