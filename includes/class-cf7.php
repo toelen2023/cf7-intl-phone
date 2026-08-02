@@ -134,27 +134,7 @@ class CF7IP_CF7 {
                     'idvalue option oneline'
                 );
                 
-                /* $this->render_text_option(
-							__( 'Field name', 'cf7-intl-phone' ),
-							'name'
-					);
-
-					$this->render_text_option(
-							__( 'Placeholder', 'cf7-intl-phone' ),
-							'placeholder'
-					);
-
-					$this->render_text_option(
-							__( 'Default country', 'cf7-intl-phone' ),
-							'default',
-							__( 'Example: ua', 'cf7-intl-phone' )
-					);
-
-					$this->render_text_option(
-							__( 'Preferred countries', 'cf7-intl-phone' ),
-							'preferred',
-							__( 'Example: ua,de,pl', 'cf7-intl-phone' )
-					); */
+                
 			?>
 
         </table>
@@ -167,7 +147,8 @@ private function render_text_field(
     string $label,
     string $name,
     string $class,
-    string $placeholder = '' ) {
+    string $placeholder = '',
+    string $value = '' ) {
     ?>
 
     <tr>
@@ -179,7 +160,8 @@ private function render_text_field(
                 <input type="text"
                 name="<?php echo esc_attr($name); ?>"
                 class="<?php echo esc_attr($class); ?>"
-                placeholder="<?php echo esc_attr($placeholder); ?>">
+                placeholder="<?php echo esc_attr($placeholder); ?>"
+                value="<?php echo esc_attr($value); ?>">
             <label><?php echo esc_attr($placeholder); ?></label>
         </td>
     </tr>
@@ -190,7 +172,9 @@ private function render_text_field(
 }
 private function render_checkbox(
     string $label,
-    string $name ) {
+    string $name,
+    bool $checked = false
+     ):void {
     ?>
     <tr>
         <th scope="row">
@@ -200,7 +184,7 @@ private function render_checkbox(
             <label>
                 <input
                     type="checkbox"
-                    name="<?php echo esc_attr( $name ); ?>">
+                    name="<?php echo esc_attr( $name ); ?> <?php checked ($checked) ?>">
                 <?php esc_html_e( 'Required field', 'cf7-intl-phone' ); ?>
             </label>
         </td>
@@ -209,31 +193,6 @@ private function render_checkbox(
 }
 
 
-	private function render_text_option(
-    string $label,
-    string $tag_part,
-    string $description = '',
-    string $placeholder = '' ) {
-    ?>
-    <tr>
-        <th>
-            <label><?php echo esc_html( $label ); ?></label>
-        </th>
-        <td>
-            <input
-                type="text"
-                data-tag-part="<?php echo esc_attr( $tag_part ); ?>"
-                placeholder="<?php echo esc_attr( $placeholder ); ?>"
-                class="tag generator-option">
-
-            <?php if ( $description ) : ?>
-                <p class="description">
-                    <?php echo esc_html( $description ); ?>
-                </p>
-            <?php endif; ?>
-        </td>
-    </tr>
-    <?php
-	}
+	
 
 }
