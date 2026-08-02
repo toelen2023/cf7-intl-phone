@@ -17,6 +17,7 @@ class CF7_Intl_Phone {
  private function load_dependencies() {
 
   require_once CF7IP_PATH . 'includes/class-assets.php';
+  require_once CF7IP_PATH . 'includes/class-cf7.php';
 
  }
 
@@ -25,6 +26,9 @@ class CF7_Intl_Phone {
   $assets = new CF7IP_Assets();
 
   $assets->init();
+
+	$this->cf7 = new CF7IP_CF7();
+	$this->cf7->init();
 
  }
 
