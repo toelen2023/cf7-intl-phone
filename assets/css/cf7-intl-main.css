@@ -2,21 +2,14 @@
     overflow: hidden;
 }
 .cf7ip-modal {
-
+    pointer-events: none;
     position: fixed;
-
     inset: 0;
-
     display: flex;
-
     justify-content: center;
-
     align-items: center;
-
     opacity: 0;
-
     visibility: hidden;
-
     transition: opacity .35s ease,
                 visibility .35s ease;
 
@@ -24,75 +17,65 @@
 }
 
 .cf7ip-modal.active {
-
+    pointer-events: auto;
     opacity: 1;
-
     visibility: visible;
 }
 
 .cf7ip-modal-overlay {
 
     position: absolute;
-
     inset: 0;
-
     background: rgba(0,0,0,.6);
 }
 
 .cf7ip-modal-window {
 
     position: relative;
-
     width: min(90vw,650px);
-
     max-height: 90vh;
-
     overflow-y: auto;
-
     background: #fff;
-
     border-radius: 12px;
-
     padding: 30px;
-
-    transform: translateY(-30px);
-
+    transform: translateY(-30px) scale(.97);
     opacity: 0;
-
     transition:
         transform .35s ease,
         opacity .35s ease;
-
     z-index: 2;
 }
 
 .cf7ip-modal.active .cf7ip-modal-window {
-
-    transform: translateY(0);
-
+    transform: translateY(0) scale(1);
     opacity: 1;
 }
 
 .cf7ip-modal-close {
 
     position: absolute;
-
     top: 12px;
-
     right: 12px;
-
     border: 0;
-
     background: transparent;
-
     font-size: 28px;
-
     cursor: pointer;
 }
 
 .cf7ip-modal-title {
-
     margin-top: 0;
-
     margin-bottom: 25px;
 }
+
+/* Animation */
+cf7ip-animation-fade
+
+.cf7ip-animation-zoom {}
+
+.cf7ip-animation-slide-top {}
+
+.cf7ip-animation-slide-left {}
+
+.cf7ip-animation-slide-bottom {}
+
+.cf7ip-animation-slide-right {}
