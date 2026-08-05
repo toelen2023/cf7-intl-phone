@@ -63,10 +63,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
             currentFormDiv = document.querySelector(
-                '.cf7ip-hidden-form[data-form-id="' + button.getAttribute('data-form') + '"]' 
+                '.cf7ip-hidden-form[data-form-id="' + button.dataset.form + '"]' 
             );
             currentForm = currentFormDiv.firstElementChild;
 
+            modalContent.replaceChildren();
             modalContent.append(currentForm);
    
             const title = modal.querySelector(
@@ -88,7 +89,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             //document.body.style.overflow = 'hidden';
             document.body.classList.add('cf7ip-modal-lock');
-
         });
 
     });
