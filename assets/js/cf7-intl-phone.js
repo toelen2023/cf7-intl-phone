@@ -43,22 +43,82 @@ function initPhoneFields() {
 
 }
 
-	
-/* const wpcf7Elm = document.querySelector( '.wpcf7' );
-wpcf7Elm.addEventListener( 'wpcf7submit', function( event ) {
-console.log("submit form")
-    if ( event.target.tagName != "FORM" ) return;
-    else { 
-        let currentForm = event.target;
-        const phone= currentForm.querySelector('form input[type="tel"]');
-        const hiddenPhone = currentForm.querySelector('form input[name="phone_full"]');
-        const code = currentForm.querySelector('.iti__selected-dial-code').textContent;
-        let fullNumber = code+phone.value;
-        console.log(fullNumber)
-        if (phone && phone._cf7ipInstance) {
-             fullNumber = phone._cf7ipInstance.getNumber();
+//form in modal window	
+document.addEventListener('DOMContentLoaded', () => {
+
+    const buttons = document.querySelectorAll('.cf7ip-modal-open');
+
+    buttons.forEach(button => {
+
+        button.addEventListener('click', () => {
+
+            const modal = document.getElementById(
+                button.dataset.modal
+            );
+
+            if (!modal) {
+                return;
+            }
+
+            const title = modal.querySelector(
+                '.cf7ip-modal-title'
+            );
+            
+            /* const newTitle = button.dataset.title;
+
+            if (newTitle) {
+                title.textContent = newTitle;
+            } */
+
+            if (title) {
+                title.textContent = button.dataset.title || '';
+            }
+
+            modal.classList.add('active');
+
+            //document.body.style.overflow = 'hidden';
+            document.body.classList.add('cf7ip-modal-lock');
+
+        });
+
+    });
+
+    document.querySelectorAll('.cf7ip-modal').forEach(modal => {
+
+        const close = () => {
+
+            modal.classList.remove('active');
+
+            //document.body.style.overflow = '';
+            document.body.classList.remove('cf7ip-modal-lock');
+
+        };
+
+        modal.querySelector('.cf7ip-modal-close')
+            ?.addEventListener('click', close);
+
+        modal.querySelector('.cf7ip-modal-overlay')
+            ?.addEventListener('click', close);
+
+    });
+
+    document.addEventListener('keydown', e => {
+
+        if (e.key !== 'Escape') {
+            return;
         }
-        hiddenPhone.value = fullNumber;
-        console.log( hiddenPhone.value, fullNumber);
-    }
-}, false ); */
+
+        document
+            .querySelectorAll('.cf7ip-modal.active')
+            .forEach(modal => {
+
+                modal.classList.remove('active');
+
+            });
+
+       // document.body.style.overflow = '';
+       document.body.classList.remove('cf7ip-modal-lock');
+
+    });
+
+});

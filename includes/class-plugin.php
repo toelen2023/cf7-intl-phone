@@ -18,7 +18,7 @@ class CF7_Intl_Phone {
 
   require_once CF7IP_PATH . 'includes/class-assets.php';
   require_once CF7IP_PATH . 'includes/class-cf7.php';
-
+  require_once CF7IP_PATH . 'includes/class-cf7-button.php';
  }
 
  private function init_hooks() {

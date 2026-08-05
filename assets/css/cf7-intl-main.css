@@ -1,0 +1,98 @@
+.cf7ip-modal-lock {
+    overflow: hidden;
+}
+.cf7ip-modal {
+
+    position: fixed;
+
+    inset: 0;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition: opacity .35s ease,
+                visibility .35s ease;
+
+    z-index: 9999;
+}
+
+.cf7ip-modal.active {
+
+    opacity: 1;
+
+    visibility: visible;
+}
+
+.cf7ip-modal-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background: rgba(0,0,0,.6);
+}
+
+.cf7ip-modal-window {
+
+    position: relative;
+
+    width: min(90vw,650px);
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: #fff;
+
+    border-radius: 12px;
+
+    padding: 30px;
+
+    transform: translateY(-30px);
+
+    opacity: 0;
+
+    transition:
+        transform .35s ease,
+        opacity .35s ease;
+
+    z-index: 2;
+}
+
+.cf7ip-modal.active .cf7ip-modal-window {
+
+    transform: translateY(0);
+
+    opacity: 1;
+}
+
+.cf7ip-modal-close {
+
+    position: absolute;
+
+    top: 12px;
+
+    right: 12px;
+
+    border: 0;
+
+    background: transparent;
+
+    font-size: 28px;
+
+    cursor: pointer;
+}
+
+.cf7ip-modal-title {
+
+    margin-top: 0;
+
+    margin-bottom: 25px;
+}

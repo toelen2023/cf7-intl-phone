@@ -67,14 +67,20 @@ class CF7IP_CF7 {
 
 	public function register_tag_generator() {
 
+   // $tgg = new WPCF7_TagGeneratorGenerator();
+
+   // $tgg->print( 'insert_box_content' );
+
     $tag_generator = WPCF7_TagGenerator::get_instance();
 
     $tag_generator->add(
-        'intl-phone',
-        __( 'International Phone', 'cf7-intl-phone' ),
-        [ $this, 'tag_generator' ]
+    'intl-phone',
+    __( 'International Phone', 'cf7-intl-phone' ),
+        [ $this, 'tag_generator' ],
+        array(
+            'version' => 2,
+        )
     );
-
 	}
 
 	public function tag_generator( $contact_form, $args ) {
@@ -139,6 +145,9 @@ class CF7IP_CF7 {
 
         </table>
 
+    </div>
+    <div class="insert-box">
+   
     </div>
     <?php
 }

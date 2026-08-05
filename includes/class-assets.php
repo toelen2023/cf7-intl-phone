@@ -27,8 +27,10 @@ class CF7IP_Assets {
 private function enqueue_styles() {
 
     wp_register_style('cf7-intl-input', CF7IP_URL. 'assets/css/intl-tel-input.css', array(), CF7IP_VERSION);
+    wp_enqueue_style('cf7-intl-input');
 
-   wp_enqueue_style('cf7-intl-input');
+    wp_register_style('cf7-intl-main', CF7IP_URL. 'assets/css/intl-tel-main.css', array(), CF7IP_VERSION);
+    wp_enqueue_style('cf7-intl-main');
 
 }
 private function enqueue_scripts() {
