@@ -52,9 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         button.addEventListener('click', () => {
 
-            const modal = document.getElementById(
-                button.dataset.modal
-            );
+            const modal = document.getElementById("cf7ip-modal");
 
             if (!modal) {
                 return;

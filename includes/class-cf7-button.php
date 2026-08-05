@@ -5,60 +5,81 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 class CF7IP_Button {
-	public function init() {
 
-    add_shortcode(
-        'cf7_btn',
-        [ $this, 'register_cf7_button' ]
-    );
+ /**
+  * Регистрация шорткода
+  */
+ public function init(): void {
 
-	}
+  add_shortcode(
+   'cf7ip_button',
+   [ $this, 'render_shortcode' ]
+  );
 
-    public function register_cf7_button( $atts, $content){
-        //__('Field name', 'cf7-intl-phone')
-        //data-title="Записаться на консультацию"
-        return 
-        ?>
-        <button
-            class="cf7ip-modal-open"
-            data-modal="booking-modal"
-            data-animation="fade"
-            data-button-title="<?php echo esc_attr($atts['button_title']) ?>"
-            data-course="B2 Beruf"
-            data-title="<?php echo  esc_attr($atts['title']) ?>">
+ }
 
-          <?php echo esc_attr($atts['button_title']) ?>
+ /**
+  * Вывод кнопки
+  */
+ public function render_shortcode( $atts = [], $content = null ): string {
 
-        </button>
+  // Сообщаем плагину, что модалка понадобится
+  do_action( 'cf7ip_modal_needed' );
 
-        <?php
+  $atts = shortcode_atts(
+   [
+    'form_id'       => '',
+    'text'       => '',
+    'title'      => '',
+    'animation'  => 'fade',
+    'course'     => '',
+    'teacher'    => '',
+    'class'      => '',
+   ],
+   $atts,
+   'cf7ip_button'
+  );
 
-    }
-    public function cf7_modal( $atts, $content){
-        return ?>
+  /*
+   * Если текст не передан атрибутом,
+   * используем содержимое шорткода
+   */
+  if ( empty( $atts['text'] ) && ! empty( $content ) ) {
+   $atts['text'] = $content;
+  }
 
-        <div id="booking-modal" class="cf7ip-modal">
+  /*
+   * Если вообще ничего нет —
+   * выводим значение по умолчанию
+   */
+  if ( empty( $atts['text'] ) ) {
+   $atts['text'] = __( 'Open form', 'cf7-intl-phone' );
+  }
 
-            <div class="cf7ip-modal-overlay"></div>
+  ob_start();
+  ?>
 
-            <div class="cf7ip-modal-window">
+  <button
+   type="button"
+   class="cf7ip-modal-open <?php echo esc_attr( $atts['class'] ); ?>"
 
-                <button class="cf7ip-modal-close">&times;</button>
+   data-form="<?php echo esc_attr( $atts['form_id'] ); ?>"
+   data-title="<?php echo esc_attr( $atts['title'] ); ?>"
+   data-animation="<?php echo esc_attr( $atts['animation'] ); ?>"
+   data-course="<?php echo esc_attr( $atts['course'] ); ?>"
+   data-teacher="<?php echo esc_attr( $atts['teacher'] ); ?>"
 
-                <h3 class="cf7ip-modal-title"></h3>
+  >
 
-                <div class="cf7ip-modal-content">
+   <?php echo esc_html( $atts['text'] ); ?>
 
-                    Modal Content
+  </button>
 
-                </div>
+  <?php
 
-        </div>
+  return ob_get_clean();
 
-    </div>
-        
-        <?php
-
-    }
+ }
 
 }
+
