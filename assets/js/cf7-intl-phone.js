@@ -60,13 +60,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
             const modalContent = modal.querySelector('.cf7ip-modal-content');
+
+
             currentFormDiv = document.querySelector(
                 '.cf7ip-hidden-form[data-form-id="' + button.getAttribute('data-form') + '"]' 
             );
             currentForm = currentFormDiv.firstElementChild;
-            console.log(currentForm, currentFormDiv)
+
             modalContent.append(currentForm);
-            
+   
             const title = modal.querySelector(
                 '.cf7ip-modal-title'
             );
@@ -86,7 +88,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             //document.body.style.overflow = 'hidden';
             document.body.classList.add('cf7ip-modal-lock');
-            currentFormDiv.appendChild(currentForm);
 
         });
 
@@ -101,6 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
             //document.body.style.overflow = '';
             document.body.classList.remove('cf7ip-modal-lock');
             modal.setAttribute("aria-hidden","true");
+            currentFormDiv.appendChild(currentForm);
         };
 
         modal.querySelector('.cf7ip-modal-close')
@@ -128,6 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
        // document.body.style.overflow = '';
        document.body.classList.remove('cf7ip-modal-lock');
+       currentFormDiv.appendChild(currentForm);
 
     });
 
