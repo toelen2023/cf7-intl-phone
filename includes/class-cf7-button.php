@@ -75,6 +75,14 @@ class CF7IP_Button {
 
   </button>
 
+  <div
+    class="cf7ip-hidden-form"
+    data-form-id="<?php echo esc_attr( $atts['form_id'] ); ?>">
+
+    <?php echo do_shortcode('[contact-form-7 id="'.esc_attr( $atts['form_id']).'"]'); ?>
+
+  </div>
+
   <?php
 
   return ob_get_clean();

@@ -27,14 +27,14 @@ class CF7_Intl_Phone {
   $assets = new CF7IP_Assets();
   $assets->init();
 
-	$this->cf7 = new CF7IP_CF7();
-	$this->cf7->init();
+	$this->cf7_code = new CF7IP_CF7();
+	$this->cf7_code->init();
 
   $this->button = new CF7IP_Button();
   $this->button ->init();
   
-  $this->modal = new CF7IP_Modal();
-  $this->modal ->init();
+  $this->modalWin = new CF7IP_Modal();
+  $this->modalWin ->init();
 
  }
 

@@ -44,9 +44,11 @@ function initPhoneFields() {
 }
 
 //form in modal window	
+
 document.addEventListener('DOMContentLoaded', () => {
 
     const buttons = document.querySelectorAll('.cf7ip-modal-open');
+    let currentForm = null, currentFormDiv = null;
 
     buttons.forEach(button => {
 
@@ -57,7 +59,14 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!modal) {
                 return;
             }
-
+            const modalContent = modal.querySelector('.cf7ip-modal-content');
+            currentFormDiv = document.querySelector(
+                '.cf7ip-hidden-form[data-form-id="' + button.getAttribute('data-form') + '"]' 
+            );
+            currentForm = currentFormDiv.firstElementChild;
+            console.log(currentForm, currentFormDiv)
+            modalContent.append(currentForm);
+            
             const title = modal.querySelector(
                 '.cf7ip-modal-title'
             );
@@ -73,9 +82,11 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             modal.classList.add('active');
+            modal.setAttribute("aria-hidden","false");
 
             //document.body.style.overflow = 'hidden';
             document.body.classList.add('cf7ip-modal-lock');
+            currentFormDiv.appendChild(currentForm);
 
         });
 
@@ -89,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             //document.body.style.overflow = '';
             document.body.classList.remove('cf7ip-modal-lock');
-
+            modal.setAttribute("aria-hidden","true");
         };
 
         modal.querySelector('.cf7ip-modal-close')
@@ -111,6 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
             .forEach(modal => {
 
                 modal.classList.remove('active');
+                modal.setAttribute("aria-hidden","true");
 
             });
 

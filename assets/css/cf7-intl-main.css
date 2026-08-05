@@ -1,6 +1,9 @@
 .cf7ip-modal-lock {
     overflow: hidden;
 }
+.cf7ip-hidden-form {
+    display: none;
+}
 .cf7ip-modal {
     pointer-events: none;
     position: fixed;
