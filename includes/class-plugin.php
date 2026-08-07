@@ -20,6 +20,7 @@ class CF7_Intl_Phone {
   require_once CF7IP_PATH . 'includes/class-cf7.php';
   require_once CF7IP_PATH . 'includes/class-cf7-button.php';
   require_once CF7IP_PATH . 'includes/class-cf7-modal.php';
+  require_once CF7IP_PATH . 'includes/class-shortcode-builder.php';
  }
 
  private function init_hooks() {
@@ -35,6 +36,9 @@ class CF7_Intl_Phone {
   
   $this->modalWin = new CF7IP_Modal();
   $this->modalWin ->init();
+
+  // $this->shortcode_builder = new CF7IP_Shortcode_Builder();
+  // $this->shortcode_builder->init();
 
  }
 

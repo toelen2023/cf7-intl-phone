@@ -12,6 +12,10 @@ class CF7IP_Assets {
    'wp_enqueue_scripts',
    [ $this, 'enqueue_assets' ]
   );
+  add_action(
+    'admin_enqueue_scripts',
+    [ $this, 'enqueue_admin_assets' ]
+    );
 
  }
 
@@ -46,6 +50,22 @@ private function enqueue_scripts() {
     wp_enqueue_script('cf7-intl-phone');
 
   }
+ /**
+  * Load CSS/JS only on our admin page.
+  */
+   public function enqueue_admin_assets(){
+    if ( 'tools_page_cf7ip-shortcode-builder' === $hook ) {
+
+        wp_enqueue_script(
+            'cf7ip-shortcode-builder',
+            CF7IP_URL . 'assets/js/shortcode-builder.js',
+            [],
+            CF7IP_VERSION,
+            true
+        );
+
+    }
+   }
 
 }
 
