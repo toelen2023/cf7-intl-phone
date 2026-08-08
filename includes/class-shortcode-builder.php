@@ -9,18 +9,29 @@ class CF7IP_Shortcode_Builder {
  /**
   * Initialize the shortcode builder.
   */
+
  public function init(): void {
 
-  add_management_page(
-   __( 'CF7 Intl Phone', 'cf7-intl-phone' ),
-   __( 'CF7 Intl Phone', 'cf7-intl-phone' ),
-   'manage_options',
-   'cf7ip-shortcode-builder',
-   [ $this, 'render_page' ]
-  );
+    add_action(
+        'admin_menu',
+        [ $this, 'register_menu' ]
+    );
 
- }
+}
 
+public function register_menu(): void {
+
+    add_management_page(
+        __( 'CF7 Intl Phone', 'cf7-intl-phone' ),
+        __( 'CF7 Intl Phone', 'cf7-intl-phone' ),
+        'manage_options',
+        'cf7ip-shortcode-builder',
+        [ $this, 'render_page' ],
+        10
+    );
+
+}
+ 
  /**
   * Render admin page.
   */
@@ -39,7 +50,7 @@ class CF7IP_Shortcode_Builder {
     ?>
    </h1>
 
-   <!-- <p>
+    <p>
     <?php
     esc_html_e(
      'Create a shortcode for the CF7 modal button.',
@@ -47,7 +58,6 @@ class CF7IP_Shortcode_Builder {
     );
     ?>
    </p>
-
    <table class="form-table">
 
     <tr>
@@ -230,9 +240,10 @@ class CF7IP_Shortcode_Builder {
      aria-live="polite"
     ></span>
 
-   </p>
+   </p> 
+   
 
-  </div> -->
+  </div> 
 
   <?php
  }

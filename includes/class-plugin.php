@@ -6,6 +6,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class CF7_Intl_Phone {
 
+  private $cf7_code;
+  private $button;
+  private $modalWin;
+  private $shortcode_builder;
+
  public function run() {
 
   $this->load_dependencies();
@@ -37,8 +42,8 @@ class CF7_Intl_Phone {
   $this->modalWin = new CF7IP_Modal();
   $this->modalWin ->init();
 
-  // $this->shortcode_builder = new CF7IP_Shortcode_Builder();
-  // $this->shortcode_builder->init();
+  $this->shortcode_builder = new CF7IP_Shortcode_Builder();
+  $this->shortcode_builder->init();
 
  }
 

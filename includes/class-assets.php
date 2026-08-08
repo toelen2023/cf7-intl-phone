@@ -53,7 +53,9 @@ private function enqueue_scripts() {
  /**
   * Load CSS/JS only on our admin page.
   */
-   public function enqueue_admin_assets(){
+   public function enqueue_admin_assets($hook){
+   
+
     if ( 'tools_page_cf7ip-shortcode-builder' === $hook ) {
 
         wp_enqueue_script(
