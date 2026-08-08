@@ -1,10 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    const form = document.getElementById('cf7ip-form');
+    const form_id = document.getElementById('cf7ip-form_id');
     const text = document.getElementById('cf7ip-text');
     const title = document.getElementById('cf7ip-title');
     const animation = document.getElementById('cf7ip-animation');
     const course = document.getElementById('cf7ip-course');
+    const course_stream = document.getElementById('cf7ip-course-stream');
     const teacher = document.getElementById('cf7ip-teacher');
     const cssClass = document.getElementById('cf7ip-class');
 
@@ -21,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     );
 
 
-    if (!form || !output) {
+    if (!form_id || !output) {
         return;
     }
 
@@ -46,11 +47,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const attributes = [];
 
         const values = {
-            form: form.value,
+            form_id: form_id.value,
             text: text.value,
             title: title.value,
             animation: animation.value,
             course: course.value,
+            course_stream: course_stream.value,
             teacher: teacher.value,
             class: cssClass.value
         };
@@ -65,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             attributes.push(
-                ${name}="${escapeShortcodeValue(value)}"
+                `${name}="${ escapeShortcodeValue(value) }"`
             );
 
         });
@@ -83,11 +85,12 @@ document.addEventListener('DOMContentLoaded', () => {
      * Update shortcode whenever a field changes.
      */
     [
-        form,
+        form_id,
         text,
         title,
         animation,
         course,
+        course_stream,
         teacher,
         cssClass
     ].forEach(field => {

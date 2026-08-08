@@ -62,23 +62,23 @@ public function register_menu(): void {
 
     <tr>
      <th scope="row">
-      <label for="cf7ip-form">
-       <?php esc_html_e( 'Form', 'cf7-intl-phone' ); ?>
+      <label for="cf7ip-form_id">
+       <?php esc_html_e( 'Form ID', 'cf7-intl-phone' ); ?>
       </label>
      </th>
 
      <td>
       <input
        type="text"
-       id="cf7ip-form"
+       id="cf7ip-form_id"
        class="regular-text"
-       placeholder="consultation"
+       placeholder="081af97"
       >
 
       <p class="description">
        <?php
        esc_html_e(
-        'Value of the data-form attribute used to find the hidden CF7 form.',
+        'Value of the id attribute in Contact Form plugin.',
         'cf7-intl-phone'
        );
        ?>
@@ -98,7 +98,7 @@ public function register_menu(): void {
        type="text"
        id="cf7ip-text"
        class="regular-text"
-       value="<?php esc_attr_e( 'Записаться', 'cf7-intl-phone' ); ?>"
+       value="<?php esc_attr_e( 'Sign Up', 'cf7-intl-phone' ); ?>"
       >
      </td>
     </tr>
@@ -115,7 +115,7 @@ public function register_menu(): void {
        type="text"
        id="cf7ip-title"
        class="regular-text"
-       placeholder="Запись на консультацию"
+       placeholder="Sign Up for a consultation"
       >
      </td>
     </tr>
@@ -170,11 +170,26 @@ public function register_menu(): void {
        type="text"
        id="cf7ip-course"
        class="regular-text"
-       placeholder="B2 Beruf"
+       placeholder="Practical Psychology"
       >
      </td>
     </tr>
 
+    <tr>
+     <th scope="row">
+      <label for="cf7ip-course-stream">
+       <?php esc_html_e( 'Course Stream', 'cf7-intl-phone' ); ?>
+      </label>
+     </th>
+
+     <td>
+      <input
+       type="text"
+       id="cf7ip-course-stream"
+       class="regular-text"
+      >
+     </td>
+    </tr>
     <tr>
      <th scope="row">
       <label for="cf7ip-teacher">
