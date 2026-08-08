@@ -26,21 +26,41 @@ function initPhoneFields() {
             countrySelectorMode: "AUTO",
             loadUtils: () => import(window.cf7IntlPhone.intlUtilsUrl),
         });
-        //input._cf7ipInstance = iti;
+        
         input.addEventListener('blur', function(){
             const currentForm = this.closest('form');
             const code = currentForm.querySelector('.iti__selected-dial-code').textContent;
             const hiddenPhone = currentForm.querySelector('form input[name="phone_full"]');
-           // let fullNumber = input._cf7ipInstance.getNumber() || code+input.value;
+
             let fullNumber = iti.getNumber() || code+input.value;
             hiddenPhone.value = fullNumber;
-            console.log('iti.getNumber()', iti.getNumber())
-            console.log('code+phone.value', code+input.value)
-            console.log('hiddenPhone.value', hiddenPhone.value)
-            console.log('end onblur')
         })
     });
 
+}
+
+function setFormValue(form, name, value) {
+
+    if (!value) {
+        return;
+    }
+
+    let field = form.querySelector(
+        `[name="${name}"]`
+    );
+
+    if (!field) {
+
+        field = document.createElement('input');
+
+        field.type = 'hidden';
+        field.name = name;
+        console.log(form, form.firstElementChild)
+
+        form.insertBefore(field, form.firstElementChild);
+    }
+
+    field.value = value;
 }
 
 //form in modal window	
@@ -49,6 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const buttons = document.querySelectorAll('.cf7ip-modal-open');
     let currentForm = null, currentFormDiv = null;
+
 
     buttons.forEach(button => {
 
@@ -66,6 +87,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 '.cf7ip-hidden-form[data-form-id="' + button.dataset.form + '"]' 
             );
             currentForm = currentFormDiv.firstElementChild;
+
+            setFormValue(
+                currentForm.querySelector('form'),
+                'course',
+                button.dataset.course
+            );
+
+            setFormValue(
+                currentForm.querySelector('form'),
+                'course_stream',
+                button.dataset.courseStream
+            );
+            setFormValue(
+                currentForm.querySelector('form'),
+                'title',
+                button.dataset.title
+            );
 
             modalContent.replaceChildren();
             modalContent.append(currentForm);
@@ -87,7 +125,6 @@ document.addEventListener('DOMContentLoaded', () => {
             modal.classList.add('active');
             modal.setAttribute("aria-hidden","false");
 
-            //document.body.style.overflow = 'hidden';
             document.body.classList.add('cf7ip-modal-lock');
         });
 

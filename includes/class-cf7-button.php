@@ -26,6 +26,8 @@ class CF7IP_Button {
   // Сообщаем плагину, что модалка понадобится
   do_action( 'cf7ip_modal_needed' );
 
+  // [cf7ip_button text="Sign Up" title="Sign up" animation="slide-top" course="dgdgdfg" course_stream="zdffsd" teacher="sdadfaf"]
+
   $atts = shortcode_atts(
    [
     'form_id'       => '',
@@ -33,6 +35,7 @@ class CF7IP_Button {
     'title'      => '',
     'animation'  => 'fade',
     'course'     => '',
+    'course_stream' => '',
     'teacher'    => '',
     'class'      => '',
    ],
@@ -67,6 +70,7 @@ class CF7IP_Button {
    data-title="<?php echo esc_attr( $atts['title'] ); ?>"
    data-animation="<?php echo esc_attr( $atts['animation'] ); ?>"
    data-course="<?php echo esc_attr( $atts['course'] ); ?>"
+   data-course-stream="<?php echo esc_attr( $atts['course_stream'] ); ?>"
    data-teacher="<?php echo esc_attr( $atts['teacher'] ); ?>"
 
   >

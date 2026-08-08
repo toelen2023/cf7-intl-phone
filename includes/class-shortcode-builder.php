@@ -26,8 +26,7 @@ public function register_menu(): void {
         __( 'CF7 Intl Phone', 'cf7-intl-phone' ),
         'manage_options',
         'cf7ip-shortcode-builder',
-        [ $this, 'render_page' ],
-        10
+        [ $this, 'render_page' ]
     );
 
 }
@@ -49,7 +48,21 @@ public function register_menu(): void {
     );
     ?>
    </h1>
+   <h3>
+    <span style="color: red">
+        <?php esc_html_e( 'Warning!', 'cf7-intl-phone' ); ?>
+    </span>
 
+    <?php
+    esc_html_e(
+        'Please add this code to your Contact Form 7 fields',
+        'cf7-intl-phone'
+    );
+    ?>
+   </h3>
+    <pre>
+        [hidden phone_full]
+    </pre>
     <p>
     <?php
     esc_html_e(
