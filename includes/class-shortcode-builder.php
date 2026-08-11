@@ -55,7 +55,7 @@ public function register_menu(): void {
 
     <?php
     esc_html_e(
-        'Please add this code to your Contact Form 7 fields',
+        'You can add this code to your Contact Form 7 fields and you find the full phone number in your email or CRM',
         'cf7-intl-phone'
     );
     ?>
