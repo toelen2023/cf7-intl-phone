@@ -15,8 +15,8 @@
     visibility: hidden;
     transition: opacity .35s ease,
                 visibility .35s ease;
-
     z-index: 9999;
+    height: 110vh;
 }
 
 .cf7ip-modal.active {
@@ -26,7 +26,6 @@
 }
 
 .cf7ip-modal-overlay {
-
     position: absolute;
     inset: 0;
     background: rgba(0,0,0,.6);
@@ -40,27 +39,20 @@
     overflow-y: auto;
     background: #fff;
     border-radius: 12px;
-    padding: 30px;
-    transform: translateY(-30px) scale(.97);
-    opacity: 0;
-    transition:
-        transform .35s ease,
-        opacity .35s ease;
+    padding: 30px; 
     z-index: 2;
 }
 
 .cf7ip-modal.active .cf7ip-modal-window {
-    transform: translateY(0) scale(1);
+    transform: translate(0,0) scale(1);
     opacity: 1;
 }
 
 .cf7ip-modal-close {
-
     position: absolute;
     top: 12px;
     right: 12px;
     border: 0;
-    background: transparent;
     font-size: 28px;
     cursor: pointer;
 }
@@ -71,14 +63,26 @@
 }
 
 /* Animation */
-cf7ip-animation-fade
+.cf7ip-animation-fade,
+.cf7ip-animation-zoom,
+.cf7ip-animation-slide-top,
+.cf7ip-animation-slide-left,
+.cf7ip-animation-slide-bottom,
+.cf7ip-animation-slide-right {
+    opacity: 0;
+    pointer-events: none;
+    transition:
+        opacity 0.35s ease,
+        transform 0.35s ease;
+}
+.cf7ip-animation-fade {transform: translateY(-30px) scale(1.1);}
 
-.cf7ip-animation-zoom {}
+.cf7ip-animation-zoom { transform: scale(1.05); transition-timing-function: cubic-bezier(0.69, 0.34, 0.49, 1.66);}
 
-.cf7ip-animation-slide-top {}
+.cf7ip-animation-slide-top { transform: translateY(-40px);}
 
-.cf7ip-animation-slide-left {}
+.cf7ip-animation-slide-left { transform: translateX(-40px);}
 
-.cf7ip-animation-slide-bottom {}
+.cf7ip-animation-slide-bottom { transform: translateY(40px);}
 
-.cf7ip-animation-slide-right {}
+.cf7ip-animation-slide-right {transform: translateX(40px);}

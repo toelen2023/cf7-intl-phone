@@ -82,6 +82,20 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             const modalContent = modal.querySelector('.cf7ip-modal-content');
 
+            const allowedAnimations = [
+                'fade',
+                'zoom',
+                'slide-top',
+                'slide-left',
+                'slide-bottom',
+                'slide-right'
+            ];
+
+            const animation = button.dataset.animation || 'fade';
+
+            if (allowedAnimations.includes(animation)) {
+                modal.classList.add(`cf7ip-animation-${animation}`);
+            }
 
             currentFormDiv = document.querySelector(
                 '.cf7ip-hidden-form[data-form-id="' + button.dataset.form + '"]' 
@@ -140,7 +154,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const close = () => {
 
-            modal.classList.remove('active');
+            // modal.classList.remove('active');
+            modal.className = 'cf7ip-modal';
 
             //document.body.style.overflow = '';
             document.body.classList.remove('cf7ip-modal-lock');
