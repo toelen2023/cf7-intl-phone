@@ -110,6 +110,12 @@ document.addEventListener('DOMContentLoaded', () => {
             
             setFormValue(
                 currentForm.querySelector('form'),
+                'teacher',
+                button.dataset.teacher
+            );
+            
+            setFormValue(
+                currentForm.querySelector('form'),
                 'phone_full',
                 '+380'
             );
@@ -122,6 +128,11 @@ document.addEventListener('DOMContentLoaded', () => {
             setFormValue(
                 currentForm.querySelector('form'),
                 'title',
+                button.dataset.title
+            );
+            setFormValue(
+                currentForm.querySelector('form'),
+                'your-subject',
                 button.dataset.title
             );
 
