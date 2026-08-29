@@ -41,13 +41,9 @@ function initPhoneFields() {
 
 function setFormValue(form, name, value) {
 
-    if (!value) {
-        return;
-    }
-
-    let field = form.querySelector(
-        `[name="${name}"]`
-    );
+    if (!value) return;
+    
+    let field = form.querySelector(`[name="${name}"]`);
 
     if (!field) {
 
@@ -77,9 +73,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const modal = document.getElementById("cf7ip-modal");
 
-            if (!modal) {
-                return;
-            }
+            if (!modal) return;
+            
             const modalContent = modal.querySelector('.cf7ip-modal-content');
 
             const allowedAnimations = [
@@ -139,9 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
             modalContent.replaceChildren();
             modalContent.append(currentForm);
    
-            const title = modal.querySelector(
-                '.cf7ip-modal-title'
-            );
+            const title = modal.querySelector('.cf7ip-modal-title');
             
             /* const newTitle = button.dataset.title;
 
@@ -149,10 +142,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 title.textContent = newTitle;
             } */
 
-            if (title) {
-                title.textContent = button.dataset.title || '';
-            }
-
+            if (title)   title.textContent = button.dataset.title || '';
+            const submitBtn = modal.querySelector('.wpcf7-submit');
+            if(submitBtn) submitBtn.value = button.dataset.formButton;
             modal.classList.add('active');
             modal.setAttribute("aria-hidden","false");
 
@@ -167,8 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // modal.classList.remove('active');
             modal.className = 'cf7ip-modal';
-
-            //document.body.style.overflow = '';
+;
             document.body.classList.remove('cf7ip-modal-lock');
             modal.setAttribute("aria-hidden","true");
             currentFormDiv.appendChild(currentForm);
@@ -184,20 +175,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.addEventListener('keydown', e => {
 
-        if (e.key !== 'Escape') {
-            return;
-        }
-
-        document
-            .querySelectorAll('.cf7ip-modal.active')
+        if (e.key !== 'Escape')  return;
+        
+        document.querySelectorAll('.cf7ip-modal.active')
             .forEach(modal => {
-
                 modal.classList.remove('active');
                 modal.setAttribute("aria-hidden","true");
-
             });
 
-       // document.body.style.overflow = '';
        document.body.classList.remove('cf7ip-modal-lock');
        currentFormDiv.appendChild(currentForm);
 

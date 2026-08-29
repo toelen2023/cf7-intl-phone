@@ -1,3 +1,7 @@
+.wpcf7-acceptance {font-size: 13px;}
+.wpcf7-acceptance .wpcf7-list-item{margin-left: 0; }
+.wpcf7 p {margin: 0 0 7px;}
+.wpcf7-submit {margin-top: 12px;}
 .cf7ip-modal-lock {
     overflow: hidden;
 }
@@ -32,9 +36,8 @@
 }
 
 .cf7ip-modal-window {
-
     position: relative;
-    width: min(90vw,650px);
+    width: min(86vw,650px);
     max-height: 90vh;
     overflow-y: auto;
     background: #fff;
@@ -53,6 +56,7 @@
     top: 12px;
     right: 12px;
     border: 0;
+    padding: 0 10px;
     font-size: 28px;
     cursor: pointer;
 }

@@ -33,6 +33,7 @@ class CF7IP_Button {
     'form_id'       => '',
     'text'       => '',
     'title'      => '',
+    'form_button' => '',
     'animation'  => 'fade',
     'course'     => '',
     'course_stream' => '',
@@ -51,10 +52,8 @@ class CF7IP_Button {
    $atts['text'] = $content;
   }
 
-  /*
-   * Если вообще ничего нет —
-   * выводим значение по умолчанию
-   */
+  // Если вообще ничего нет — выводим значение по умолчанию
+
   if ( empty( $atts['text'] ) ) {
    $atts['text'] = __( 'Open form', 'cf7-intl-phone' );
   }
@@ -65,18 +64,15 @@ class CF7IP_Button {
   <button
    type="button"
    class="cf7ip-modal-open <?php echo esc_attr( $atts['class'] ); ?>"
-
    data-form="<?php echo esc_attr( $atts['form_id'] ); ?>"
    data-title="<?php echo esc_attr( $atts['title'] ); ?>"
+   data-form-button="<?php echo esc_attr( $atts['form_button'] ); ?>"
    data-animation="<?php echo esc_attr( $atts['animation'] ); ?>"
    data-course="<?php echo esc_attr( $atts['course'] ); ?>"
    data-course-stream="<?php echo esc_attr( $atts['course_stream'] ); ?>"
    data-teacher="<?php echo esc_attr( $atts['teacher'] ); ?>"
-
   >
-
    <?php echo esc_html( $atts['text'] ); ?>
-
   </button>
 
   <div

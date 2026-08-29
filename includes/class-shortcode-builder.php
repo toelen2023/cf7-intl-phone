@@ -6,10 +6,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class CF7IP_Shortcode_Builder {
 
- /**
-  * Initialize the shortcode builder.
-  */
-
+ // Initialize the shortcode builder.
+  
  public function init(): void {
 
     add_action(
@@ -40,39 +38,19 @@ public function register_menu(): void {
 
   <div class="wrap cf7ip-shortcode-builder">
 
-   <h1>
-    <?php
-    esc_html_e(
-     'CF7 Intl Phone — Shortcode Builder',
-     'cf7-intl-phone'
-    );
-    ?>
-   </h1>
+   <h1><?php esc_html_e('CF7 Intl Phone — Shortcode Builder', 'cf7-intl-phone' ); ?></h1>
    <h3>
     <span style="color: red">
         <?php esc_html_e( 'Warning!', 'cf7-intl-phone' ); ?>
     </span>
-
     <?php
-    esc_html_e(
-        'You can add this code to your Contact Form 7 fields and you find the full phone number in your email or CRM',
-        'cf7-intl-phone'
-    );
+     esc_html_e('You can add this code to your Contact Form 7 fields and you find the full phone number in your email or CRM', 'cf7-intl-phone' );
     ?>
    </h3>
-    <pre>
-        [hidden phone_full]
-    </pre>
-    <p>
-    <?php
-    esc_html_e(
-     'Create a shortcode for the CF7 modal button.',
-     'cf7-intl-phone'
-    );
-    ?>
-   </p>
-   <table class="form-table">
-
+    <pre>[hidden phone_full]</pre>
+    <p><?php esc_html_e('Create a shortcode for the CF7 modal button.', 'cf7-intl-phone' ); ?></p>
+   
+    <table class="form-table">
     <tr>
      <th scope="row">
       <label for="cf7ip-form_id">
@@ -81,38 +59,22 @@ public function register_menu(): void {
      </th>
 
      <td>
-      <input
-       type="text"
-       id="cf7ip-form_id"
-       class="regular-text"
-       placeholder="081af97"
-      >
-
+      <input type="text" id="cf7ip-form_id" class="regular-text" placeholder="081af97">
       <p class="description">
-       <?php
-       esc_html_e(
-        'Value of the id attribute in Contact Form plugin.',
-        'cf7-intl-phone'
-       );
-       ?>
+       <?php esc_html_e( 'Value of the id attribute in Contact Form plugin.','cf7-intl-phone' ); ?>
       </p>
      </td>
     </tr>
-
     <tr>
      <th scope="row">
       <label for="cf7ip-text">
        <?php esc_html_e( 'Button text', 'cf7-intl-phone' ); ?>
       </label>
      </th>
-
      <td>
       <input
-       type="text"
-       id="cf7ip-text"
-       class="regular-text"
-       value="<?php esc_attr_e( 'Sign Up', 'cf7-intl-phone' ); ?>"
-      >
+       type="text" id="cf7ip-text" class="regular-text" 
+       value="<?php esc_attr_e( 'Sign up', 'cf7-intl-phone' ); ?>">
      </td>
     </tr>
 
@@ -122,14 +84,20 @@ public function register_menu(): void {
        <?php esc_html_e( 'Modal title', 'cf7-intl-phone' ); ?>
       </label>
      </th>
-
      <td>
-      <input
-       type="text"
-       id="cf7ip-title"
-       class="regular-text"
-       placeholder="Sign Up for a consultation"
-      >
+      <input type="text"  id="cf7ip-title" class="regular-text"
+       placeholder="Sign up for a consultation">
+     </td>
+    </tr>
+    <tr>
+     <th scope="row">
+      <label for="cf7ip-form-button-text">
+       <?php esc_html_e( 'Form button text', 'cf7-intl-phone' ); ?>
+      </label>
+     </th>
+     <td>
+      <input type="text"  id="cf7ip-form-button-text" class="regular-text"
+       placeholder="<?php esc_html_e( 'Order', 'cf7-intl-phone' ); ?>">
      </td>
     </tr>
 
@@ -142,35 +110,15 @@ public function register_menu(): void {
 
      <td>
       <select id="cf7ip-animation">
-
-       <option value="fade">
-        Fade
-       </option>
-
-       <option value="zoom">
-        Zoom
-       </option>
-
-       <option value="slide-top">
-        Slide top
-       </option>
-
-       <option value="slide-bottom">
-        Slide bottom
-       </option>
-
-       <option value="slide-left">
-        Slide left
-       </option>
-
-       <option value="slide-right">
-        Slide right
-       </option>
-
+        <option value="fade">Fade</option>
+        <option value="zoom">Zoom </option>
+        <option value="slide-top">Slide top</option>
+        <option value="slide-bottom">Slide bottom</option>
+        <option value="slide-left">Slide left</option>
+        <option value="slide-right">Slide right</option>
       </select>
      </td>
     </tr>
-
     <tr>
      <th scope="row">
       <label for="cf7ip-course">
@@ -179,12 +127,7 @@ public function register_menu(): void {
      </th>
 
      <td>
-      <input
-       type="text"
-       id="cf7ip-course"
-       class="regular-text"
-       placeholder="Practical Psychology"
-      >
+      <input type="text" id="cf7ip-course" class="regular-text" placeholder="Practical Psychology">
      </td>
     </tr>
 
@@ -196,11 +139,7 @@ public function register_menu(): void {
      </th>
 
      <td>
-      <input
-       type="text"
-       id="cf7ip-course-stream"
-       class="regular-text"
-      >
+      <input type="text" id="cf7ip-course-stream" class="regular-text">
      </td>
     </tr>
     <tr>
@@ -211,11 +150,7 @@ public function register_menu(): void {
      </th>
 
      <td>
-      <input
-       type="text"
-       id="cf7ip-teacher"
-       class="regular-text"
-      >
+      <input type="text" id="cf7ip-teacher" class="regular-text">
      </td>
     </tr>
 
@@ -227,12 +162,7 @@ public function register_menu(): void {
      </th>
 
      <td>
-      <input
-       type="text"
-       id="cf7ip-class"
-       class="regular-text"
-       placeholder="my-button"
-      >
+      <input type="text" id="cf7ip-class" class="regular-text"placeholder="my-button">
      </td>
     </tr>
 
@@ -244,33 +174,19 @@ public function register_menu(): void {
     <?php esc_html_e( 'Generated shortcode', 'cf7-intl-phone' ); ?>
    </h2>
    <p>
-    <textarea
-     id="cf7ip-generated-shortcode"
-     class="large-text code"
-     rows="4"
-     readonly
-    ></textarea>
+    <textarea id="cf7ip-generated-shortcode"
+     class="large-text code" rows="4" readonly></textarea>
    </p>
 
    <p>
-
-    <button
-     type="button"
-     id="cf7ip-copy-shortcode"
-     class="button button-primary"
-    >
+    <button type="button" id="cf7ip-copy-shortcode" class="button button-primary">
      <?php esc_html_e( 'Copy shortcode', 'cf7-intl-phone' ); ?>
     </button>
 
-    <span
-     id="cf7ip-copy-status"
-     class="cf7ip-copy-status"
-     aria-live="polite"
-    ></span>
-
+    <span id="cf7ip-copy-status" class="cf7ip-copy-status"
+     aria-live="polite" ></span>
    </p> 
    
-
   </div> 
 
   <?php

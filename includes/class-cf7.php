@@ -32,7 +32,7 @@ class CF7IP_CF7 {
 
 	public function render_tag( $tag ) {
 
-    $name = $tag->name;
+        $name = $tag->name;
 
 		$id = $tag->get_id_option();
 
@@ -54,10 +54,7 @@ class CF7IP_CF7 {
         name="<?php echo esc_attr( $name ); ?>"
         class="wpcf7-form-control cf7ip-phone">
 
-    <input
-        type="hidden"
-        name="phone_full"
-				class="cf7ip-full-phone">
+    <input type="hidden"  name="phone_full" class="cf7ip-full-phone">
 
     <?php
 

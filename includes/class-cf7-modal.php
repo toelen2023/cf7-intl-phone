@@ -48,21 +48,13 @@ class CF7IP_Modal {
 
         ?>
 
-        <div
-            id="cf7ip-modal"
-            class="cf7ip-modal"
-            aria-hidden="true"
-        >
+        <div id="cf7ip-modal" class="cf7ip-modal" aria-hidden="true">
 
             <div class="cf7ip-modal-overlay"></div>
-
             <div class="cf7ip-modal-window">
 
-                <button
-                    type="button"
-                    class="cf7ip-modal-close"
-                    aria-label="<?php esc_attr_e( 'Close', 'cf7-intl-phone' ); ?>"
-                >
+                <button type="button" class="cf7ip-modal-close"
+                    aria-label="<?php esc_attr_e( 'Close', 'cf7-intl-phone' ); ?>"                >
                     &times;
                 </button>
 
