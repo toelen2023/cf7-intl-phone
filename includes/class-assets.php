@@ -50,9 +50,9 @@ private function enqueue_scripts() {
     wp_enqueue_script('cf7-intl-phone');
 
   }
- /**
-  * Load CSS/JS only on our admin page.
-  */
+ 
+  //Load CSS/JS only on our admin page.
+  
    public function enqueue_admin_assets($hook){
    
 

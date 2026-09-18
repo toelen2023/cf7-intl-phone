@@ -42,9 +42,9 @@ function initPhoneFields() {
 function setFormValue(form, name, value) {
 
     if (!value) return;
-    
+    console.log(name)
     let field = form.querySelector(`[name="${name}"]`);
-
+    console.log(field)
     if (!field) {
 
         field = document.createElement('input');
@@ -144,7 +144,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (title)   title.textContent = button.dataset.title || '';
             const submitBtn = modal.querySelector('.wpcf7-submit');
-            if(submitBtn) submitBtn.value = button.dataset.formButton;
+            if(submitBtn && button.dataset.formButton) submitBtn.value = button.dataset.formButton;
+            
             modal.classList.add('active');
             modal.setAttribute("aria-hidden","false");
 
