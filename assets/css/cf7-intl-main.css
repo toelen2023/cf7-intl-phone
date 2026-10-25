@@ -2,7 +2,8 @@
 .wpcf7-acceptance .wpcf7-list-item{margin-left: 0; }
 .wpcf7 p {margin: 0 0 7px;}
 .wpcf7-submit {margin-top: 12px;}
-.wpcf7-spinner {position: absolute;}
+.wpcf7-form .wpcf7-spinner {position: absolute;}
+
 .cf7ip-modal-lock {
     overflow: hidden;
 }
@@ -87,14 +88,12 @@
     transition: transform 0.3s ease;
 }
 
-
 .cf7ip-animation-fade {transform: translateY(-30px) scale(1.1);}
 .cf7ip-animation-zoom { transform: scale(1.05); transition-timing-function: cubic-bezier(0.69, 0.34, 0.49, 1.66);}
 .cf7ip-animation-slide-left {animation: slideInLeft .4s ease;}
 .cf7ip-animation-slide-right {animation: slideInRight .4s ease;}
 .cf7ip-animation-slide-bottom { animation: slideInTop .4s ease;}
 .cf7ip-animation-slide-top { animation: slideInBottom .4s ease;}
-
 
 @keyframes slideInLeft {
   from {

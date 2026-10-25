@@ -163,24 +163,17 @@ private function render_text_field(
         </th>
         <td>
             
-                <input type="text"
-                name="<?php echo esc_attr($name); ?>"
-                class="<?php echo esc_attr($class); ?>"
+                <input type="text" class="<?php echo esc_attr($class); ?>"
+                name="<?php echo esc_attr($name); ?>"           
                 placeholder="<?php echo esc_attr($placeholder); ?>"
                 value="<?php echo esc_attr($value); ?>">
             <label><?php echo esc_attr($placeholder); ?></label>
         </td>
     </tr>
     
-    
-
     <?php
 }
-private function render_checkbox(
-    string $label,
-    string $name,
-    bool $checked = false
-     ):void {
+private function render_checkbox( string $label, string $name,  bool $checked = false ):void {
     ?>
     <tr>
         <th scope="row">
@@ -196,9 +189,6 @@ private function render_checkbox(
         </td>
     </tr>
     <?php
-}
-
-
-	
+}	
 
 }
